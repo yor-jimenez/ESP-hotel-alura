@@ -20,7 +20,7 @@ public class ReservaDAO {
 	
 	public void guardar(Reserva reserva) {
 		try {
-			String sql = "INSERT INTO reservas (fecha_entrada, fecha_salida, valor, formaPago) VALUES (?, ?, ?, ?)";
+			String sql = "INSERT INTO reservas (FechaEntrada, FechSalida, Valor, FormaPago) VALUES (?, ?, ?, ?)";
 
 			try (PreparedStatement pstm = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
