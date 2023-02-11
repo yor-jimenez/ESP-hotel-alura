@@ -48,7 +48,7 @@ private Connection connection;
 	public List<Huespedes> listarHuespedes() {
 		List<Huespedes> huespedes = new ArrayList<Huespedes>();
 		try {
-			String sql = "SELECT id, nombre, apellido, fecha_nacimiento, nacionalidad, telefono, idReserva FROM huespedes";
+			String sql = "SELECT id, nombre, apellido, FechaNacimiento, nacionalidad, telefono, idReserva FROM huespedes";
 
 			try (PreparedStatement pstm = connection.prepareStatement(sql)) {
 				pstm.execute();
@@ -65,7 +65,7 @@ private Connection connection;
 		List<Huespedes> huespedes = new ArrayList<Huespedes>();
 		try {
 
-			String sql = "SELECT id, nombre, apellido, fecha_nacimiento, nacionalidad, telefono, idReserva FROM huespedes WHERE idReserva = ?";
+			String sql = "SELECT id, nombre, apellido, FechaNacimiento, nacionalidad, telefono, idReserva FROM huespedes WHERE idReserva = ?";
 
 			try (PreparedStatement pstm = connection.prepareStatement(sql)) {
 				pstm.setString(1, id);
@@ -81,7 +81,7 @@ private Connection connection;
 	
 	public void Actualizar(String nombre, String apellido, Date fechaN, String nacionalidad, String telefono, Integer idReserva, Integer id) {
 		try (PreparedStatement stm = connection
-				.prepareStatement("UPDATE huespedes SET nombre = ?, apellido = ?, fecha_nacimiento = ?, nacionalidad = ?, telefono = ?, idReserva = ? WHERE id = ?")) {
+				.prepareStatement("UPDATE huespedes SET nombre = ?, apellido = ?, FechaNacimiento = ?, nacionalidad = ?, telefono = ?, idReserva = ? WHERE id = ?")) {
 			stm.setString(1, nombre);
 			stm.setString(2, apellido);
 			stm.setDate(3, fechaN);
